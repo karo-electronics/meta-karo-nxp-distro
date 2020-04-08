@@ -27,7 +27,10 @@ IMAGE_INSTALL += " \
 		 libdrm-tests \
 		 libdrm-kms \
 		 libdrm-etnaviv \
+		 gst-examples \
 "
+
+CORE_IMAGE_EXTRA_INSTALL_mx6 += "u-boot-karo"
 
 CORE_IMAGE_BASE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'weston-xwayland matchbox-terminal', '', d)}"
 
