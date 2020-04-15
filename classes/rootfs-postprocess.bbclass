@@ -18,7 +18,7 @@ rootfs_postinst_cleanup () {
     # remove unused file to prevent confusion
     rm -vf ${IMAGE_ROOTFS}${sysconfdir}/timezone
 
-    rmdir -v ${IMAGE_ROOTFS}/usr/share/man
+    rm -vrf ${IMAGE_ROOTFS}/usr/share/man
 
     date -u > ${IMAGE_ROOTFS}/.timestamp
 }

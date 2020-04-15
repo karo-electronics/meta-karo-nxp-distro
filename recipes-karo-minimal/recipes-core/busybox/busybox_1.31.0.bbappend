@@ -38,7 +38,7 @@ USERADD_PARAM_${PN} = ""
 GROUPADD_PARAM_${PN} = "--system utmp"
 
 # need /etc/group in the staging directory
-DEPENDS = "base-passwd"
+DEPENDS += "base-passwd"
 
 FILES_${PN} += "/run/utmp ${localstatedir}/log/wtmp"
 
