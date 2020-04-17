@@ -10,6 +10,7 @@ IMAGE_FEATURES += "read-only-rootfs"
 IMAGE_ROOTFS_MAXSIZE ?= "${@bb.utils.contains('FLASHTYPE',"nand","65536","",d)}"
 
 ROOTFS_POSTPROCESS_COMMAND_append = "rootfs_postinst_cleanup; "
+ROOTFS_POSTPROCESS_COMMAND_remove = "rootfs_update_timestamp; empty_var_volatile;"
 
 python extend_recipe_sysroot_append() {
     bb.note("IMAGE_FEATURES[read-only-rootfs]='%s'" % bb.utils.filter('IMAGE_FEATURES','read-only-rootfs',d))

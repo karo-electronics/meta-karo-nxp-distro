@@ -30,8 +30,6 @@ IMAGE_INSTALL += " \
 		 gst-examples \
 "
 
-CORE_IMAGE_EXTRA_INSTALL_mx6 += "u-boot-karo"
-
 IMAGE_FSTYPES += "${@bb.utils.contains('FLASHTYPE',"emmc","ext4","",d)}"
 
 CORE_IMAGE_BASE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'weston-xwayland matchbox-terminal', '', d)}"
