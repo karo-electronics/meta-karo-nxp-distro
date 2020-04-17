@@ -19,7 +19,10 @@ FILES_${PN} += "${sysconfdir}/network/run"
 DEPENDS += "${@ bb.utils.contains('DISTRO_FEATURES','pam','libpam','',d)}"
 
 # overrule prio 200 of sysvinit and shadow
-ALTERNATIVE_PRIORITY = "201"
+# if enabled, /bin/sh will be linked to /bin/busybox.nosuid
+# as workaround this is disabled, and will increase the size of the rootfs
+#ALTERNATIVE_PRIORITY = "201"
+
 #BUSYBOX_SPLIT_SUID = "0"
 RDEPENDS_busybox-mdev += "bash"
 
