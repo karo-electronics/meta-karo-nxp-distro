@@ -13,7 +13,7 @@ inherit core-image distro_features_check
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
-IMAGE_FSTYPES += "${@bb.utils.contains('FLASHTYPE',"emmc","ext4","",d)}"
+IMAGE_FSTYPES += "${@bb.utils.contains('MACHINE_FEATURES',"emmc","ext4","",d)}"
 
 QB_MEM = '${@bb.utils.contains("DISTRO_FEATURES", "opengl", "-m 512", "-m 256", d)}'
 

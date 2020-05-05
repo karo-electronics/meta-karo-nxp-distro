@@ -7,7 +7,7 @@ SUMMARY = "A minimal Linux system without graphics support."
 IMAGE_LINGUAS = " "
 IMAGE_FEATURES += "read-only-rootfs"
 
-IMAGE_ROOTFS_MAXSIZE ?= "${@bb.utils.contains('FLASHTYPE',"nand","65536","",d)}"
+IMAGE_ROOTFS_MAXSIZE ?= "${@bb.utils.contains('MACHINE_FEATURES',"nand","65536","",d)}"
 
 ROOTFS_POSTPROCESS_COMMAND_remove = "rootfs_update_timestamp; empty_var_volatile;"
 

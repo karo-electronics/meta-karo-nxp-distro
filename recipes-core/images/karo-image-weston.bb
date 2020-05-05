@@ -30,7 +30,7 @@ IMAGE_INSTALL += " \
 		 gst-examples \
 "
 
-IMAGE_FSTYPES += "${@bb.utils.contains('FLASHTYPE',"emmc","ext4","",d)}"
+IMAGE_FSTYPES += "${@bb.utils.contains('MACHINE_FEATURES',"emmc","ext4","",d)}"
 
 CORE_IMAGE_BASE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'weston-xwayland matchbox-terminal', '', d)}"
 
