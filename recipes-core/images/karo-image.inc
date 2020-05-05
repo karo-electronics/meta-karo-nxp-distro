@@ -33,6 +33,7 @@ IMAGE_INSTALL = "\
               parted \
               rsync \
               strace \
+	      tcp-wrappers \
               tzdata \
               util-linux-fsck \
               util-linux-mkfs \
