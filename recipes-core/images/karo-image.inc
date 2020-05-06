@@ -2,8 +2,6 @@ LICENSE = "MIT"
 
 inherit core-image distro_features_check
 
-DISTROOVERRIDES =. "karo-minimal:karo-base:karo-x11:karo-wayland"
-
 IMAGE_FEATURES += "tools-debug"
 
 IMAGE_INSTALL = "\
