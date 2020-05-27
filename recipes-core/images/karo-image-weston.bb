@@ -36,6 +36,10 @@ CORE_IMAGE_BASE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'west
 
 QB_MEM = '${@bb.utils.contains("DISTRO_FEATURES", "opengl", "-m 512", "-m 256", d)}'
 
+# Set ROOTFS_MAXSIZE to expected ROOTFS_SIZE to use the whole disk partition and leave extra space to user
+IMAGE_ROOTFS_SIZE_stm32mp1        = "${ROOTFS_PARTITION_SIZE}"
+IMAGE_ROOTFS_MAXSIZE_stm32mp1     = "${ROOTFS_PARTITION_SIZE}"
+
 python extend_recipe_sysroot_append() {
     if d.getVar('DISTRO') != 'karo-wayland':
         raise_sanity_error("cannot build 'karo-image-weston' with DISTRO '%s'" % d.getVar('DISTRO'), d)
