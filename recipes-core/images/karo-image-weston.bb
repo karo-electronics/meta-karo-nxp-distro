@@ -27,6 +27,8 @@ IMAGE_INSTALL += " \
 		 libdrm-tests \
 		 libdrm-kms \
 		 libdrm-etnaviv \
+         	 ntp \
+         	 ntpdate \
 		 gst-examples \
 "
 
