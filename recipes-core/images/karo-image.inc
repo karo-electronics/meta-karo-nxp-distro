@@ -40,7 +40,6 @@ IMAGE_INSTALL = "\
 
 CORE_IMAGE_EXTRA_INSTALL += "kernel-modules"
 DEPENDS_mx6 += "u-boot-karo"
-#CORE_IMAGE_EXTRA_INSTALL_mx8m += "imx-boot"
 
 PREFERRED_PROVIDER_fdisk = "util-linux"
 PREFERRED_PROVIDER_virtual/bootloader = "u-boot-karo"
