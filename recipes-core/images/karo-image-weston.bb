@@ -14,22 +14,26 @@ inherit core-image distro_features_check
 REQUIRED_DISTRO_FEATURES = "wayland"
 
 CORE_IMAGE_BASE_INSTALL += " \
+			clutter-1.0-examples \
+			glmark2 \
+			gtk+3-demo \
 			weston \
 			weston-init \
 			weston-examples \
-			gtk+3-demo \
-			clutter-1.0-examples \
-			glmark2 \
 "
 
 IMAGE_INSTALL += " \
+		 packagegroup-core-boot \
+		 canutils \
+		 coreutils \
+		 dhcpcd \
+		 gst-examples \
 		 libdrm \
 		 libdrm-tests \
 		 libdrm-kms \
 		 libdrm-etnaviv \
          	 ntp \
          	 ntpdate \
-		 gst-examples \
 "
 
 IMAGE_FSTYPES += "${@bb.utils.contains('MACHINE_FEATURES',"emmc","ext4","",d)}"
