@@ -1,15 +1,13 @@
+SUMMARY = "A minimal Linux system without graphics support."
+
 require karo-image.inc 
 
 inherit rootfs-postprocess
 
-SUMMARY = "A minimal Linux system without graphics support."
-
-IMAGE_LINGUAS = " "
+IMAGE_LINGUAS = ""
 IMAGE_FEATURES += "read-only-rootfs"
 
 IMAGE_ROOTFS_MAXSIZE ?= "${@bb.utils.contains('MACHINE_FEATURES',"nand","65536","",d)}"
-
-ROOTFS_POSTPROCESS_COMMAND_remove = "rootfs_update_timestamp; empty_var_volatile;"
 
 python extend_recipe_sysroot_append() {
     bb.note("IMAGE_FEATURES[read-only-rootfs]='%s'" % bb.utils.filter('IMAGE_FEATURES','read-only-rootfs',d))

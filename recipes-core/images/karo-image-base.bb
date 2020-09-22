@@ -1,8 +1,8 @@
-IMAGE_BASENAME = "karo-image-base"
-
-SUMMARY = "A console-only image for Ka-Ro electronics TX6 modules with Debian Package Management"
+SUMMARY = "A console-only image for Ka-Ro electronics TX modules"
 
 require karo-image.inc
+
+DISTRO_FEATURES_append = " busybox-crond"
 
 IMAGE_LINGUAS_append = " de-de"
 

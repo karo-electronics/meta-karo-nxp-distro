@@ -1,11 +1,15 @@
 LICENSE = "MIT"
 
-inherit core-image distro_features_check
+inherit core-image distro_features_check rootfs-postprocess relative_symlinks
 
-IMAGE_FEATURES += "tools-debug"
+ROOTFS_POSTPROCESS_COMMAND_remove = "\
+				     rootfs_update_timestamp; \
+				     ${bb.utils.contains('DISTRO_FEATURES','read-only-rootfs','empty_var_volatile;','',d)} \
+"
 
-IMAGE_INSTALL = "\
-              packagegroup-core-boot \
+IMAGE_FEATURES_append = " tools-debug"
+
+IMAGE_INSTALL_append = " \
               ${CORE_IMAGE_EXTRA_INSTALL} \
               alsa-utils-aplay \
               alsa-utils-amixer \
@@ -39,7 +43,8 @@ IMAGE_INSTALL = "\
 "
 
 CORE_IMAGE_EXTRA_INSTALL += "kernel-modules"
-DEPENDS_mx6 += "u-boot-karo"
+DEPENDS_append_mx6 = " u-boot-karo"
+DEPENDS_append_mx8 = " imx-boot"
 
 PREFERRED_PROVIDER_fdisk = "util-linux"
 PREFERRED_PROVIDER_virtual/bootloader = "u-boot-karo"
