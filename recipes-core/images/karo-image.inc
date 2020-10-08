@@ -33,6 +33,7 @@ IMAGE_INSTALL_append = " \
               ntp \
               ntpdate \
               parted \
+              pciutils \
               rsync \
               strace \
 	      tcp-wrappers \
