@@ -3,8 +3,8 @@ LICENSE = "MIT"
 inherit core-image distro_features_check rootfs-postprocess relative_symlinks
 
 ROOTFS_POSTPROCESS_COMMAND_remove = "\
-				     rootfs_update_timestamp; \
-				     ${bb.utils.contains('DISTRO_FEATURES','read-only-rootfs','empty_var_volatile;','',d)} \
+                                     rootfs_update_timestamp; \
+                                     ${bb.utils.contains('DISTRO_FEATURES','read-only-rootfs','empty_var_volatile;','',d)} \
 "
 
 IMAGE_FEATURES_append = " tools-debug"
@@ -25,22 +25,25 @@ IMAGE_INSTALL_append = " \
               kmod \
               i2c-tools \
               ldd \
-	      less \
+              less \
               libstdc++ \
+              ${@bb.utils.contains('DISTRO_FEATURES','wifi','linux-firmware-pcie8997','',d)} \
               lsof \
               mmc-utils \
-	      ncurses \
+              ncurses \
               ntp \
               ntpdate \
               parted \
               pciutils \
               rsync \
               strace \
-	      tcp-wrappers \
+              tcp-wrappers \
               tzdata \
               util-linux-fsck \
               util-linux-mkfs \
               util-linux-setterm \
+              ${@bb.utils.contains('DISTRO_FEATURES','imx219','v4l-utils','',d)} \
+              ${@bb.utils.contains('DISTRO_FEATURES','wifi','wpa-supplicant','',d)} \
 "
 
 CORE_IMAGE_EXTRA_INSTALL += "kernel-modules"

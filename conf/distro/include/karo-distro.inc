@@ -21,6 +21,8 @@ DISTRO_FEATURES_append = " \
 "
 
 VIRTUAL-RUNTIME_base-utils-hwclock = "util-linux-hwclock"
+VIRTUAL-RUNTIME_dev_manager ??= "udev"
+VIRTUAL-RUNTIME_init_manager ?= "${@bb.utils.contains('DISTRO_FEATURES',"systemd","systemd","sysvinit",d)}"
 
 PREFERRED_PROVIDER_opencl-headers = "imx-gpu-viv"
 
