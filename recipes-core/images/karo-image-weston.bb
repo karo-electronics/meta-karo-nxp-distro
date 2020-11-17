@@ -25,11 +25,7 @@ IMAGE_INSTALL_append = " \
                         libdrm \
                         libdrm-tests \
                         libdrm-kms \
+                        ${@bb.utils.contains('DISTRO_FEATURES', 'x11 wayland', 'weston-xwayland xterm', '', d)} \
 "
 
 QB_MEM = '${@bb.utils.contains("DISTRO_FEATURES", "opengl", "-m 512", "-m 256", d)}'
-
-python extend_recipe_sysroot_append() {
-    if d.getVar('DISTRO') != 'karo-wayland':
-        raise_sanity_error("cannot build 'karo-image-weston' with DISTRO '%s'" % d.getVar('DISTRO'), d)
-}
