@@ -9,9 +9,12 @@ IMAGE_INSTALL_append = " \
                         pylon \
                         python3-pypylon \
                         gentl-producer \
+                        xauth \
+"
+
+IMAGE_INSTALL_append_mx8mp = " \
                         kernel-module-isp-vvcam \
                         basler-camera \
                         isp-imx \
-                        xauth \
                         packagegroup-fsl-gstreamer1.0-full \
 "
