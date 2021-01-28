@@ -7,8 +7,5 @@ bluetooth_pkg = "${@bb.utils.contains('DISTRO_FEATURES','bluethooth','','package
 
 CORE_IMAGE_EXTRA_INSTALL_remove = "${@bb.utils.contains('DISTRO_FEATURES','bluethooth','','packagegroup-tools-bluetooth',d)}"
 
-# canutils conflicts with can-utils from packagegroup-fsl-tools-testapps
-IMAGE_INSTALL_remove = "canutils"
-
 # qt creator needs openssh
 IMAGE_FEATURES += "ssh-server-openssh"
