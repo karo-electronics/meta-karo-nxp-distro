@@ -56,7 +56,7 @@ PREFERRED_PROVIDER_virtual/kernel = "linux-karo"
 
 IMAGE_ROOTFS_SIZE ?= "${@bb.utils.contains('MACHINE_FEATURES',"nand",64*1024,128*1024,d)}"
 IMAGE_ROOTFS_ALIGNMENT ?= "${@bb.utils.contains('MACHINE_FEATURES',"nand",128*1024,1024,d)}"
-IMAGE_ROOTFS_EXTRA_SPACE = "${@bb.utils.contains('MACHINE_FEATURES',"nand",2*128*1024,1024*1024,d)}"
+IMAGE_ROOTFS_EXTRA_SPACE ?= "${@bb.utils.contains('MACHINE_FEATURES',"nand",2*128*1024,0,d)}"
 
 IMAGE_FSTYPES_remove = "tar.gz"
 IMAGE_FSTYPES += "tar.bz2"
