@@ -14,6 +14,7 @@ IMAGE_INSTALL_append = " \
 
 IMAGE_INSTALL_append_mx8mp = " \
                         kernel-module-isp-vvcam \
+                        imx8mp-modprobe-config \
                         basler-camera \
                         isp-imx \
                         packagegroup-fsl-gstreamer1.0-full \
