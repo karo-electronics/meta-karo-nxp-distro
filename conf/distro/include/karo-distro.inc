@@ -20,8 +20,11 @@ DISTRO_FEATURES_append = " \
                           telnet-login \
 "
 
+DISTRO_FEATURES_append_mx8  = " dsi83"
 DISTRO_FEATURES_append_qs8m = " csi-camera imx219 raspi-display"
-DISTRO_FEATURES_append_tx8m = " dsi83"
+DISTRO_FEATURES_append_qsxm = " basler csi-camera raspi-display"
+DISTRO_FEATURES_append_qsxp = " basler csi-camera raspi-display"
+DISTRO_FEATURES_append_tx8p = " lvds"
 
 VIRTUAL-RUNTIME_base-utils-hwclock = "util-linux-hwclock"
 VIRTUAL-RUNTIME_dev_manager ??= "udev"
