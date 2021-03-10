@@ -19,4 +19,5 @@ IMAGE_INSTALL_append_mx8mp = " \
                         basler-camera \
                         isp-imx \
                         packagegroup-fsl-gstreamer1.0-full \
+                        packagegroup-imx-isp \
 "

@@ -17,10 +17,6 @@ IMAGE_INSTALL_append = " \
         tzdata \
 "
 
-IMAGE_INSTALL_append_mx8mp = " \
-        packagegroup-imx-isp \
-"
-
 TOOLCHAIN_TARGET_TASK_append = " \
         tensorflow-lite-staticdev \
 "
