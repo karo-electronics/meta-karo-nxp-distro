@@ -6,7 +6,7 @@ IMAGE_FEATURES_append = " \
                          hwcodecs \
                          package-management \
                          splash \
-                         ssh-server-dropbear \
+                         ssh-server-openssh \
 "
 
 REQUIRED_DISTRO_FEATURES = "wayland"
