@@ -9,6 +9,7 @@ IMAGE_INSTALL_append = " \
                         pylon \
                         python3-pypylon \
                         gentl-producer \
+                        v4l-utils \
                         xauth \
 "
 
