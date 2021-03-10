@@ -1,6 +1,6 @@
-SUMMARY = "An image with full multimedia, basler camera and ML support"
+SUMMARY = "An image with full multimedia and Machine Learning support"
 
-require recipes-core/images/karo-image-basler.bb
+require recipes-core/images/karo-image-weston.bb
 
 OPENCV_PKGS_imxgpu = " \
         opencv-apps \

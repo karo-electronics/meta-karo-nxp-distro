@@ -1,6 +1,6 @@
-SUMMARY = "An image with full multimedia and basler camera support"
+SUMMARY = "An image with full multimedia, Machine Learning and Basler camera support"
 
-require recipes-core/images/karo-image-weston.bb
+require recipes-core/images/karo-image-ml.bb
 
 REQUIRED_DISTRO_FEATURES = "x11 wayland"
 
