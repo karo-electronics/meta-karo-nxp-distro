@@ -1,6 +1,8 @@
 LICENSE = "MIT"
 
-inherit core-image distro_features_check rootfs-postprocess relative_symlinks
+inherit core-image features_check rootfs-postprocess relative_symlinks
+
+REQUIRED_DISTRO_FEATURES ??= ""
 
 ROOTFS_POSTPROCESS_COMMAND_remove = "\
                                      rootfs_update_timestamp; \
@@ -51,8 +53,6 @@ DEPENDS_append_mx6 = " u-boot-karo"
 DEPENDS_append_mx8 = " imx-boot"
 
 PREFERRED_PROVIDER_fdisk = "util-linux"
-PREFERRED_PROVIDER_virtual/bootloader = "u-boot-karo"
-PREFERRED_PROVIDER_virtual/kernel = "linux-karo"
 
 IMAGE_ROOTFS_SIZE ?= "${@bb.utils.contains('MACHINE_FEATURES',"nand",64*1024,128*1024,d)}"
 IMAGE_ROOTFS_ALIGNMENT ?= "${@bb.utils.contains('MACHINE_FEATURES',"nand",128*1024,1024,d)}"

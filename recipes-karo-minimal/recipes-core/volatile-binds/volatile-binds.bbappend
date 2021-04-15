@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://COPYING.MIT;md5=5750f3aa4ea2b00c2bf21b2b2a7b714d"
 
 SRC_URI_karo_minimal = ""
 
-inherit allarch distro_features_check
+inherit allarch features_check
 
 VOLATILE_BINDS_karo_minimal = ""
 VOLATILE_BINDS_karo_minimal[type] = "list"
