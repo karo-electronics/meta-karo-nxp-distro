@@ -20,6 +20,8 @@ dirs755_append = " \
 
 volatiles = ""
 
+inherit relative_symlinks
+
 do_install_append () {
     if [ "${TXNVM}" = "emmc" ];then
         sed -i '/root/s/0$/1/' ${D}${sysconfdir}/fstab

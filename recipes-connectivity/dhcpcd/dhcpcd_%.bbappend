@@ -12,6 +12,8 @@ SRC_URI_append = " \
            file://resolv.conf \
 "
 
+inherit relative_symlinks
+
 do_install_append () {
     sed -i 's/^duid/#duid/;s/^#clientid/clientid/' ${D}${sysconfdir}/dhcpcd.conf
     if ! grep -q '^quiet' ${D}${sysconfdir}/dhcpcd.conf;then
