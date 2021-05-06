@@ -28,6 +28,7 @@ IMAGE_INSTALL_append = " \
               i2c-tools \
               ldd \
               less \
+              libgpiod \
               libstdc++ \
               ${@bb.utils.contains('DISTRO_FEATURES','wifi','linux-firmware-pcie8997','',d)} \
               lsof \
