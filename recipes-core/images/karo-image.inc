@@ -19,11 +19,13 @@ IMAGE_INSTALL_append = " \
               bash \
               canutils \
               coreutils \
+              curl \
               dhcpcd \
               dosfstools \
               e2fsprogs \
               file \
               gdbserver \
+              git \
               kmod \
               i2c-tools \
               ldd \
