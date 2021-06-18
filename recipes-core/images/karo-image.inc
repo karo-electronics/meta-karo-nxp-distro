@@ -4,51 +4,53 @@ inherit core-image features_check rootfs-postprocess relative_symlinks
 
 REQUIRED_DISTRO_FEATURES ??= ""
 
-ROOTFS_POSTPROCESS_COMMAND_remove = "\
-                                     rootfs_update_timestamp; \
-                                     ${bb.utils.contains('DISTRO_FEATURES','read-only-rootfs','empty_var_volatile;','',d)} \
+ROOTFS_POSTPROCESS_COMMAND_remove = " \
+        rootfs_update_timestamp; \
+        ${bb.utils.contains('DISTRO_FEATURES','read-only-rootfs','empty_var_volatile;','',d)} \
 "
 
 IMAGE_FEATURES_append = " tools-debug"
 
 IMAGE_INSTALL_append = " \
-              ${CORE_IMAGE_EXTRA_INSTALL} \
-              alsa-utils-aplay \
-              alsa-utils-amixer \
-              alsa-utils-alsamixer \
-              bash \
-              canutils \
-              coreutils \
-              curl \
-              dhcpcd \
-              dosfstools \
-              e2fsprogs \
-              file \
-              gdbserver \
-              git \
-              kmod \
-              i2c-tools \
-              ldd \
-              less \
-              libgpiod \
-              libstdc++ \
-              ${@bb.utils.contains('DISTRO_FEATURES','wifi','linux-firmware-pcie8997','',d)} \
-              lsof \
-              mmc-utils \
-              ncurses \
-              ntp \
-              ntpdate \
-              parted \
-              pciutils \
-              rsync \
-              strace \
-              tcp-wrappers \
-              tzdata \
-              util-linux-fsck \
-              util-linux-mkfs \
-              util-linux-setterm \
-              ${@bb.utils.contains('DISTRO_FEATURES','imx219','v4l-utils','',d)} \
-              ${@bb.utils.contains('DISTRO_FEATURES','wifi','wpa-supplicant','',d)} \
+        ${CORE_IMAGE_EXTRA_INSTALL} \
+        alsa-utils-aplay \
+        alsa-utils-amixer \
+        alsa-utils-alsamixer \
+        bash \
+        canutils \
+        coreutils \
+        curl \
+        dhcpcd \
+        dosfstools \
+        e2fsprogs \
+        e2fsprogs-resize2fs \
+        file \
+        gdbserver \
+        git \
+        kmod \
+        i2c-tools \
+        ldd \
+        less \
+        libgpiod \
+        libgpiod-tools \
+        libstdc++ \
+        ${@bb.utils.contains('DISTRO_FEATURES','wifi','linux-firmware-pcie8997','',d)} \
+        lsof \
+        mmc-utils \
+        ncurses \
+        ntp \
+        ntpdate \
+        parted \
+        pciutils \
+        rsync \
+        strace \
+        tcp-wrappers \
+        tzdata \
+        util-linux-fsck \
+        util-linux-mkfs \
+        util-linux-setterm \
+        ${@bb.utils.contains('DISTRO_FEATURES','imx219','v4l-utils','',d)} \
+        ${@bb.utils.contains('DISTRO_FEATURES','wifi','wpa-supplicant','',d)} \
 "
 
 CORE_IMAGE_EXTRA_INSTALL += "kernel-modules"
