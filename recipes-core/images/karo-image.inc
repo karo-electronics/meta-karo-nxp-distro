@@ -62,7 +62,6 @@ IMAGE_ROOTFS_ALIGNMENT ?= "${@bb.utils.contains('MACHINE_FEATURES',"nand",128*10
 IMAGE_ROOTFS_EXTRA_SPACE ?= "${@bb.utils.contains('MACHINE_FEATURES',"nand",2*128*1024,0,d)}"
 
 IMAGE_FSTYPES_remove = "tar.gz"
-IMAGE_FSTYPES += "tar.bz2"
 IMAGE_FSTYPES += "${@bb.utils.contains('MACHINE_FEATURES',"nand","ubi","",d)}"
 IMAGE_FSTYPES += "${@bb.utils.contains('MACHINE_FEATURES',"emmc","ext4","",d)}"
 
