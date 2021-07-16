@@ -1,19 +1,27 @@
 POKY_DISTRO ??= "poky"
 require conf/distro/${POKY_DISTRO}.conf
 
+POKY_DEFAULT_DISTRO_FEATURES_remove = " \
+                                       largefile \
+                                       opengl \
+                                       ptest \
+                                       vulkan \
+                                       wayland \
+"
+
 DISTRO_FEATURES_DEFAULT_remove = " \
+                                  3g \
                                   argp \
                                   bluetooth \
-                                  pcmcia \
-                                  zeroconf \
-                                  3g \
                                   nfc \
-                                  ptest \
-                                  x11 \
+                                  pcmcia \
                                   wifi \
+                                  x11 \
+                                  zeroconf \
 "
 
 DISTRO_FEATURES_append = " \
+                          alternatives-symlinks-relative \
                           dhcpcd \
                           ldconfig \
                           pam \
