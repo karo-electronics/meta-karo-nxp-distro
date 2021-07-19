@@ -41,7 +41,7 @@ IMAGE_INSTALL_append = " \
         ntp \
         ntpdate \
         parted \
-        pciutils \
+        ${@bb.utils.contains('DISTRO_FEATURES','pcie','pciutils','',d)} \
         rsync \
         strace \
         tcp-wrappers \
