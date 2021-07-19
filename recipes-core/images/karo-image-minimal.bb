@@ -6,6 +6,7 @@ inherit rootfs-postprocess
 
 IMAGE_LINGUAS = ""
 IMAGE_FEATURES += "read-only-rootfs"
+IMAGE_FEATURES_remove = "tools-debug"
 
 IMAGE_ROOTFS_MAXSIZE ?= "${@bb.utils.contains('MACHINE_FEATURES',"nand","65536","",d)}"
 
