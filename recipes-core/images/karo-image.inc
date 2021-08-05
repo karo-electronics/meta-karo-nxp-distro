@@ -70,3 +70,36 @@ IMAGE_FSTYPES += "${@bb.utils.contains('MACHINE_FEATURES',"emmc","ext4","",d)}"
 MKUBIFS_ARGS ?= "-F -x zlib -m 2048 -e 126976 -c 256"
 UBINIZE_ARGS ?= "-m 2048 -s 2048 -p 128KiB"
 UBI_VOLNAME = "rootfs"
+
+# create bootfs image file with every karo-image-* build
+do_image_complete[depends] += "karo-image-bootfs:do_image_complete"
+
+# create uuu.auto file for image
+IMAGE_POSTPROCESS_COMMAND_append = " do_create_uuu_auto_script;"
+
+UUU_TEMPLATE_PATH_mx8mm = "uuu-templates/mx8mm"
+UUU_TEMPLATE_PATH_mx8mn = "uuu-templates/mx8mn"
+UUU_TEMPLATE_PATH_mx8mp = "uuu-templates/mx8mp"
+
+python do_create_uuu_auto_script() {
+    import shutil
+    from string import Template
+
+    machine = d.getVar('MACHINE')
+    imxboot_target = d.getVar('IMXBOOT_TARGETS')
+    image = d.getVar('BPN')
+
+    uuu_template_path = d.expand("${THISDIR}/${UUU_TEMPLATE_PATH}/uuu.auto.template")
+    uuu_auto_path = d.expand("${IMGDEPLOYDIR}/uuu.auto")
+
+    f = open(uuu_template_path, 'r')
+    uuu_template_string = f.read()
+
+    try:
+        with open(uuu_auto_path, 'w') as uuu_script:
+            uuu_template = Template(uuu_template_string)
+            uuu_auto = uuu_template.substitute(image=image, machine=machine, imxboot_target=imxboot_target)
+            uuu_script.write(uuu_auto)
+    except OSError:
+        bb.fatal('Unable to open %s' % (uuu_auto_path))
+}
