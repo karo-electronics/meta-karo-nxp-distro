@@ -38,6 +38,7 @@ IMAGE_INSTALL_append = " \
         lsof \
         mmc-utils \
         ncurses \
+        nfs-utils \
         ntp \
         ntpdate \
         parted \
