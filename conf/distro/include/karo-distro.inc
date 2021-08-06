@@ -48,3 +48,6 @@ BBMASK += ".*/meta-imx/.*/sysvinit/.*"
 
 # mask out bbappend from devil since it's fetch gives 404
 BBMASK += ".*/meta-imx/meta-sdk/recipes-graphics/devil/devil_%.bbappend"
+
+# mask out recipe breaking the weston desktop without systemd
+BBMASK += ".*/meta-imx/meta-bsp/recipes-graphics/wayland/weston-init.bbappend"
