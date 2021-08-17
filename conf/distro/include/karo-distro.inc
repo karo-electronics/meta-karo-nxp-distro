@@ -2,30 +2,30 @@ POKY_DISTRO ??= "poky"
 require conf/distro/${POKY_DISTRO}.conf
 
 POKY_DEFAULT_DISTRO_FEATURES_remove = " \
-                                       largefile \
-                                       opengl \
-                                       ptest \
-                                       vulkan \
-                                       wayland \
+        largefile \
+        opengl \
+        ptest \
+        vulkan \
+        wayland \
 "
 
 DISTRO_FEATURES_DEFAULT_remove = " \
-                                  3g \
-                                  argp \
-                                  bluetooth \
-                                  nfc \
-                                  pcmcia \
-                                  wifi \
-                                  x11 \
-                                  zeroconf \
+        3g \
+        argp \
+        bluetooth \
+        nfc \
+        pcmcia \
+        wifi \
+        x11 \
+        zeroconf \
 "
 
 DISTRO_FEATURES_append = " \
-                          alternatives-symlinks-relative \
-                          dhcpcd \
-                          ldconfig \
-                          pam \
-                          telnet-login \
+        alternatives-symlinks-relative \
+        dhcpcd \
+        ldconfig \
+        pam \
+        telnet-login \
 "
 
 DISTRO_FEATURES_append_mx8  = " dsi83"
