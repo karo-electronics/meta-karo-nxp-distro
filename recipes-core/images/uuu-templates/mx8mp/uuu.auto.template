@@ -32,6 +32,8 @@ FB: flash -raw2sparse rootfs $image-$machine.ext4
 ### Default u-boot environment
 FB: ucmd env default -a
 FB: ucmd setenv bootdelay 1
+# "mmc0: running CQE recovery" workaround
+FB: ucmd setenv append_bootargs clk_ignore_unused debug sdhci.debug_quirks=0x65168080
 FB: ucmd saveenv
 
 FB: done
