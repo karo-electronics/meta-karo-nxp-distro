@@ -13,6 +13,7 @@ DISTRO_FEATURES_DEFAULT_remove = " \
         3g \
         argp \
         bluetooth \
+        ipv6 \
         nfc \
         pcmcia \
         wifi \
