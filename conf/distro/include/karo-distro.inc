@@ -44,6 +44,8 @@ PREFERRED_PROVIDER_opencl-headers = "imx-gpu-viv"
 
 VOLATILE_LOG_DIR = "no"
 
+MACHINE_FIRMWARE_remove = "${@ bb.utils.contains('DISTRO_FEATURES', 'wifi', "", "linux-firmware-ath10k", d)}"
+
 # mask out sysvinit recipes from meta-imx layer
 BBMASK += ".*/meta-imx/.*/sysvinit/.*"
 
