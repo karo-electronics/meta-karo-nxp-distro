@@ -20,7 +20,7 @@ IMAGE_INSTALL_append = " \
         canutils \
         coreutils \
         curl \
-        dhcpcd \
+        ${@bb.utils.contains('DISTRO_FEATURES','dhcpcd','dhcpcd','',d)} \
         dosfstools \
         e2fsprogs \
         e2fsprogs-resize2fs \
