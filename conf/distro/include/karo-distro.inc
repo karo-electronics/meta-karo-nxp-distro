@@ -46,6 +46,9 @@ VOLATILE_LOG_DIR = "no"
 
 MACHINE_FIRMWARE_remove = "${@ bb.utils.contains('DISTRO_FEATURES', 'wifi', "", "linux-firmware-ath10k", d)}"
 
+# Remove some image types we don't need
+IMAGE_FSTYPES_remove = "sdcard.bz2 wic.bz2 wic.bmap"
+
 # mask out sysvinit recipes from meta-imx layer
 BBMASK += ".*/meta-imx/.*/sysvinit/.*"
 
