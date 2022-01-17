@@ -56,7 +56,7 @@ IMAGE_INSTALL_append = " \
 
 CORE_IMAGE_EXTRA_INSTALL += "kernel-modules"
 DEPENDS_append_mx6 = " u-boot-karo"
-DEPENDS_append_mx8 = " imx-boot"
+DEPENDS_append_mx8 = " imx-boot uuu-script-template"
 
 PREFERRED_PROVIDER_fdisk = "util-linux"
 
@@ -74,12 +74,9 @@ UBI_VOLNAME = "rootfs"
 
 # create bootfs image file with every karo-image-* build
 do_image_complete[depends] += "karo-image-bootfs:do_image_complete"
+do_image_complete[depends] += "uuu-script-template:do_deploy"
 
 # create uuu.auto file for image
-
-UUU_TEMPLATE_PATH_mx8mm = "uuu-templates/mx8mm"
-UUU_TEMPLATE_PATH_mx8mn = "uuu-templates/mx8mn"
-UUU_TEMPLATE_PATH_mx8mp = "uuu-templates/mx8mp"
 
 addtask do_create_uuu_auto_script after do_image_complete before do_build
 
@@ -99,7 +96,7 @@ python do_create_uuu_auto_script() {
     imxboot_target = d.getVar('IMXBOOT_TARGETS')
     image = d.getVar('BPN')
 
-    uuu_template_path = d.expand("${THISDIR}/${UUU_TEMPLATE_PATH}/uuu.auto.template")
+    uuu_template_path = d.expand("${DEPLOY_DIR_IMAGE}/uuu.auto.template")
     img_dirname = d.expand("${DEPLOY_DIR_IMAGE}/${BPN}")
     uuu_auto_path = os.path.join(img_dirname, "uuu.auto")
 
